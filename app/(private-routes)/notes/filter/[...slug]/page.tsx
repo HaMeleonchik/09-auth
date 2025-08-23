@@ -1,6 +1,7 @@
-import { fetchNotes } from "@/lib/api";
+
 import NotesClient from "./Notes.client";
 import { Metadata } from "next";
+import { fetchServerNotes } from "@/lib/api/serverApi";
 
 interface Props{
   params: Promise<{ slug: string[] }>
@@ -40,8 +41,7 @@ const tag = filterNot === "All" ? undefined : filterNot
 
   const page = 1
   const searchQuery = ""
-  
-  const initialData = await fetchNotes(searchQuery, tag, page)
+  const initialData = await fetchServerNotes(searchQuery, tag, page)
 
   return <NotesClient
     initialNotes={initialData.notes}

@@ -1,3 +1,4 @@
+import AuthNavigation from "../AuthNavigation/AuthNavigation"
 import TagsMenu from "../TagsMenu/TagsMenu"
 import css from "./Header.module.css"
 import Link from "next/link"
@@ -11,6 +12,7 @@ return <header className={css.header}>
       <li>
         <Link href="/">Home</Link>
       </li>
+      <AuthNavigation/>
       <li>
         <TagsMenu/>
       </li>

@@ -1,5 +1,5 @@
 import NotFound from "@/app/not-found"
-import { fetchNoteById } from "../../../lib/api"
+import { fetchNoteById } from "@/lib/api/clientApi"
 import NoteDetailsClient from "./NoteDetails.client"
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
 import { Metadata } from "next"
