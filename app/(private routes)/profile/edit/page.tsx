@@ -1,16 +1,17 @@
 "use client"
 import Image from "next/image"
 import css from "./EditProfilePage.module.css"
-import { getMe, getUpdateMe } from "@/lib/api/clientApi"
+import { getMe, updateUserProfile } from "@/lib/api/clientApi"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-
+import { useAuthStore } from "@/lib/store/authStore"
 export default function EditProfilePage() {
   const [UserName, setUserName] = useState("")
   const [UserEmail, setUserEmail] = useState("")
   const [UserAvatar, setUserAvatar] = useState("")
+  const{setUser}= useAuthStore()
   const router = useRouter()
-    
+
 useEffect(() => {
     getMe().then((user) => {
       setUserName(user.username ?? '');
@@ -31,9 +32,10 @@ useEffect(() => {
       return
     }
     
-        const data = await getUpdateMe({ email: UserEmail, username: UserName })
-        if (data) {
-          router.push("/profile")
+    const data = await updateUserProfile({ email: UserEmail, username: UserName })
+    if (data) {
+    setUser(data)
+      router.push("/profile")
     }
     
   }

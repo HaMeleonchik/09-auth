@@ -15,10 +15,10 @@ export default function SignUpPage() {
   try {
     const data = Object.fromEntries(formData) as unknown as AuthRequestData
   const user = await register(data)
-    
+  
     if (user) {
-      router.push("/profile")
       setUser(user)
+      router.push("/profile")
  } else {
       setError("Invalid email or password")
     }

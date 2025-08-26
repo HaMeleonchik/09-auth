@@ -16,8 +16,8 @@ const handleLogin = async (formData: FormData) => {
     const user = await login(data)
 
     if (user) {
+        setUser(user)
       router.push("/profile")
-      setUser(user)
     } else {
       setError("Invalid email or password")
     }

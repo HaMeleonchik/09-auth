@@ -1,5 +1,5 @@
 "use client"
-import { checkSession, getMe } from "@/lib/api/clientApi"
+import { isValidSession, getMe } from "@/lib/api/clientApi"
 import { useAuthStore } from "@/lib/store/authStore"
 import { useEffect } from "react"
 
@@ -14,7 +14,7 @@ const clearIsAuthenticated =  useAuthStore((state)=>state.clearIsAuthenticated)
     useEffect(() => {
         const fetchSession = async () => {
 
-            const res = await checkSession()
+            const res = await isValidSession()
             
             if (res) {
                 const user = await getMe()

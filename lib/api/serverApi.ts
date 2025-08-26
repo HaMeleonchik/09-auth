@@ -1,8 +1,9 @@
-import { checkSessionResponse, User } from "@/types/user"
+import {User } from "@/types/user"
 import { nextServer } from "./api"
 import { cookies } from "next/headers"
 import { Note } from "@/types/note"
 import { NoteHttpResponse } from "./clientApi"
+import { checkSessionResponse } from "@/types/common"
 
 export async function checkServerSession() {
     const cookieData = await cookies()

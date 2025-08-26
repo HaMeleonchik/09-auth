@@ -3,13 +3,3 @@ export interface User {
   email: string,
   avatar: string 
 }
-
-
-export type UpdateUserRequest = {
-  email: string,
-  username:string
-};
-
-export interface checkSessionResponse{
-  success:boolean,
-}
